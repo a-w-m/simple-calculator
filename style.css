@@ -1,0 +1,91 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.calculator {
+  display: grid;
+  grid-template-rows: 2fr repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "terminal terminal terminal terminal" "allClear allClear delete divide" "seven eight nine multiply" "four five six substract" "one two three add" "decimal zero equals equals";
+  width: 20rem;
+  height: 30rem;
+  background-color: #80cbc4;
+}
+
+.terminal {
+  grid-area: terminal;
+}
+
+.allClear {
+  grid-area: allClear;
+  font-size: 2rem;
+}
+
+.delete {
+  grid-area: delete;
+}
+
+#divide {
+  grid-area: divide;
+}
+
+#seven {
+  grid-area: seven;
+}
+
+#eight {
+  grid-area: eight;
+}
+
+#nine {
+  grid-area: nine;
+}
+
+#multiply {
+  grid-area: multiply;
+}
+
+#four {
+  grid-area: four;
+}
+
+#one {
+  grid-area: one;
+}
+
+#two {
+  grid-area: two;
+}
+
+#three {
+  grid-area: three;
+}
+
+#add {
+  grid-area: add;
+}
+
+.decimal {
+  grid-area: decimal;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+#equals {
+  grid-area: equals;
+  font-size: 2rem;
+}
+
+.calculator > div {
+  border: 0.1rem solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
