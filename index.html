@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <title>Simple Calculator</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type= "text/css" href = "style.css">
     <link rel="icon" href="data:;base64,=">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -8,25 +9,26 @@
 <body>
     <main>
         <div id = "calculator" class = "calculator">
-        <div id = "terminal" class ="terminal">0</div>
-        <div id = "allClear" class ="allClear">AC</div>
-        <div id = "delete" class = "delete">DEL</div>
-        <div id = "divide" class = "operations">/</div>
-        <div id = "seven" class = "numbers">7</div>
-        <div id = "eight" class = "numbers">8</div>
-        <div id = "nine" class = "numbers">9</div>    
-        <div id = "multiply" class = "operations">*</div>
-        <div id = "four" class = "numbers">4</div>
-        <div id = "five" class = "numbers">5</div>    
-        <div id = "six" class = "numbers">6</div>
-        <div id = "subtract" class = "operations">-</div> 
-        <div id = "one" class ="numbers">1</div>  
-        <div id ="two" class ="numbers">2</div>
-        <div id = "three" class = "numbers">3</div>   
-        <div id = "add" class = "operations">+</div>  
-        <div id = "decimal" class = "decimal">.</div>
-        <div id = "zero" class ="numbers">0</div>
-        <div id = "equals" class = "equals">=</div>
+        <textarea id = "terminal" class ="terminal" readonly>0</textarea>
+        <button id = "allClear" class ="allClear">AC</button>
+        <button id = "delete" class = "delete">DEL</button>
+        <button id = "buttonide" class = "operations">/</button>
+        <button id = "seven" class = "numbers">7</button>
+        <button id = "eight" class = "numbers">8</button>
+        <button id = "nine" class = "numbers">9</button>    
+        <button id = "multiply" class = "operations">*</button>
+        <button id = "four" class = "numbers">4</button>
+        <button id = "five" class = "numbers">5</button>    
+        <button id = "six" class = "numbers">6</button>
+        <button id = "subtract" class = "operations">-</button> 
+        <button id = "one" class ="numbers">1</button>  
+        <button id ="two" class ="numbers">2</button>
+        <button id = "three" class = "numbers">3</button>   
+        <button id = "add" class = "operations">+</button>  
+        <button id = "decimal" class = "decimal">.</button>
+        <button id = "zero" class ="numbers">0</button>
+        <button id = "equals" class = "equals">=</button>
+        
 
 
 
@@ -35,12 +37,10 @@
 
 
 
-
-
-
-
-        </div>
     </main>
+    <div id="footer">js calculator by awm</div>
+
     <script src = "simple-calculator.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.1.0/math.min.js" type="text/javascript"></script>
 </body>
 
