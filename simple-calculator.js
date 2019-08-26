@@ -8,16 +8,16 @@
 
     document.getElementById("terminal").innerHTML = buttonInputArray.join("");
     if (
-      buttonInputArray.join("").length > 14 &&
-      buttonInputArray.join("").length <= 42
+      buttonInputArray.join("").length > 13 &&
+      buttonInputArray.join("").length <= 38
     ) {
       document.getElementById("terminal").style.fontSize = "2rem";
     } else if (
-      buttonInputArray.join("").length > 42 &&
-      buttonInputArray.join("").length <= 87
+      buttonInputArray.join("").length > 38 &&
+      buttonInputArray.join("").length <= 51
     ) {
       document.getElementById("terminal").style.fontSize = "1.5rem";
-    } else if (buttonInputArray.join("").length > 87) {
+    } else if (buttonInputArray.join("").length > 51) {
       document.getElementById("terminal").style.fontSize = "1rem";
     } else {
       document.getElementById("terminal").style.fontSize = "3rem";
@@ -53,20 +53,31 @@
         buttonInputArray[buttonInputArray.length - 1] == "*" ||
         buttonInputArray[buttonInputArray.length - 1] == "/" ||
         buttonInputArray[buttonInputArray.length - 1] == "+" ||
-        buttonInputArray[buttonInputArray.length - 1] == "-" ||
         buttonInputArray[buttonInputArray.length - 1] == "."
       ) {
-        buttonInputArray.pop();
+          if (operations[operation].innerHTML != "-"){
+          
+        
+                   //buttonInputArray.pop();
+                    buttonInputArray.push(operations[operation].innerHTML);
+                    displayToTerminal();
+                    isThereADecimal = false;
+                    this.blur();
+      }  
+         else {
         buttonInputArray.push(operations[operation].innerHTML);
         displayToTerminal();
         isThereADecimal = false;
         this.blur();
-      } else {
+         } }
+        
+        else {
         buttonInputArray.push(operations[operation].innerHTML);
         displayToTerminal();
         isThereADecimal = false;
         this.blur();
       }
+      
     };
   }
 
@@ -153,17 +164,29 @@
         buttonInputArray[buttonInputArray.length - 1] == "*" ||
         buttonInputArray[buttonInputArray.length - 1] == "/" ||
         buttonInputArray[buttonInputArray.length - 1] == "+" ||
-        buttonInputArray[buttonInputArray.length - 1] == "-" ||
         buttonInputArray[buttonInputArray.length - 1] == "."
       ) {
-        buttonInputArray.pop();
+          if (keyPress != "-"){
+          
+        
+                   //buttonInputArray.pop();
+                    buttonInputArray.push(keyPress);
+                    displayToTerminal();
+                    isThereADecimal = false;
+                    this.blur();
+      }  
+         else {
         buttonInputArray.push(keyPress);
         displayToTerminal();
         isThereADecimal = false;
-      } else {
+        this.blur();
+         } }
+        
+        else {
         buttonInputArray.push(keyPress);
         displayToTerminal();
         isThereADecimal = false;
+        this.blur();
       }
     } else if (keyPress == "=" || keyPress === "Enter") {
       equals();
@@ -177,3 +200,6 @@
     }
   });
 })();
+
+
+

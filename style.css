@@ -9,6 +9,7 @@ main {
   justify-content: center;
   align-content: center;
   align-items: center;
+  flex-wrap: wrap;
   cursor: default;
   height: 100%;
   margin: 0 0;
@@ -33,7 +34,8 @@ main {
   .calculator {
     border: 0.25rem solid black;
     width: 20rem;
-    height: 75vh;
+    height: 30rem;
+    margin: 0 auto;
   }
 }
 @media screen and (min-width: 1024px) and (min-height: 1366px) and (orientation: landscape) {
@@ -47,6 +49,14 @@ main {
   .calculator {
     width: 100vw;
     height: 100%;
+    margin: 0 auto;
+  }
+}
+@media (min-width: 1800px) {
+  .calculator {
+    border: 0.25rem solid black;
+    width: 30rem;
+    height: 50rem;
     margin: 0 auto;
   }
 }
@@ -156,9 +166,9 @@ button:active {
 }
 @media (min-width: 1200px) {
   #footer {
+    flex: 0 1 100%;
     display: block;
     text-align: center;
-    margin-top: -5rem;
   }
 }
 
