@@ -18,7 +18,8 @@ http.createServer(function (request, response) {
     var validExt ={
         '.html': 'text/html',
         '.js': 'text/javascript',
-        '.css': 'text/css'
+        '.css': 'text/css',
+        '.wav': "audio/wav"
     };
 
     var contentType = validExt[fileExt];

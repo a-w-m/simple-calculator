@@ -169,7 +169,6 @@
           if (keyPress != "-"){
           
         
-                   //buttonInputArray.pop();
                     buttonInputArray.push(keyPress);
                     displayToTerminal();
                     isThereADecimal = false;
