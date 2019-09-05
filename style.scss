@@ -33,7 +33,15 @@
     border-radius: .25rem;
     background: #6e8efb;
     cursor: pointer;
+    outline: none;
     
+}
+
+@mixin active{
+    transform: translateY(.05rem);
+    transform: scaleY(1.1);
+    border: .25rem solid beige;
+
 }
 html, body{
     margin: 0 0;
@@ -71,7 +79,7 @@ main{
                          "four five six substract"
                          "one two three add"
                          "decimal zero equals equals";
-    width: 100vw;
+    width: 90vw;
     height: 100%;
     margin: 0 auto;
     grid-column-gap: .5rem;
@@ -124,6 +132,8 @@ main{
     font-size: 2rem;
     background: #6e8efb;
     font-family: 'Roboto Condensed', sans-serif;
+    transition: .2s;
+    outline: none;
 
 
 }
@@ -192,18 +202,24 @@ main{
     font-size: 5rem;
 }
 
-#equals:hover{
-    background-color: beige;
+#equals:active{
+    @include active;
+    outline :none;
 }
 
- button:hover{
-    border: .025rem solid black;
-    background-color: beige;
- }
+//  button:hover{
+//     border: .025rem solid black;
+//     background-color: beige;
+//  }
 
 
- button:active{
-     transform: translateY(.03rem);
+//  button:active{
+//     @include active;
+//  }
+
+ .active{
+     @include active;
+
  }
 
 #footer{

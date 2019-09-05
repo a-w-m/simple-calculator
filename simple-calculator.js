@@ -30,6 +30,7 @@
 
   for (let x = 0; x < numbers.length; x++) {
     numbers[x].onclick = function() {
+      numbers[x].classList.toggle("active")
       if (document.getElementById("terminal").innerHTML.indexOf("=") != -1) {
         buttonInputArray = [];
         buttonInputArray.push(numbers[x].innerHTML);
@@ -49,6 +50,7 @@
 
   for (let operation = 0; operation < operations.length; operation++) {
     operations[operation].onclick = function() {
+      operations[operation].classList.toggle("active")
       if (
         buttonInputArray[buttonInputArray.length - 1] == "*" ||
         buttonInputArray[buttonInputArray.length - 1] == "/" ||
@@ -84,7 +86,9 @@
   const equals = function() {
     /*This function uses mathjs evaluation function to evaluate mathematical expressions stored in strings*/
     let myRegex = /[\*\+-\/]+$/;
+  
 
+    
     if (buttonInputArray[0] == "/" || buttonInputArray[0] == "*") {
       buttonInputArray.unshift(0);
       document.getElementById("terminal").innerHTML =
@@ -118,6 +122,7 @@
   };
 
   const deleteLastInput = function() {
+    this.classList.toggle("active")
     if (buttonInputArray[buttonInputArray.length - 1] == ".") {
       buttonInputArray.pop();
       displayToTerminal();
@@ -133,6 +138,8 @@
   document.getElementById("delete").onclick = deleteLastInput;
 
   const decimal = function() {
+    this.classList.toggle("active")
+
     if (isThereADecimal == false) {
       buttonInputArray.push(".");
       displayToTerminal();
@@ -149,6 +156,9 @@
     /*event listener that handles key presses instead of mouse clicks*/
     const keyPress = event.key;
     const operators = ["/", "*", "+", "-"];
+    const button = document.querySelectorAll("[data-key=" +"\'" + event.key + "\'" +"]")
+    console.log(button[0].classList)
+    button[0].classList.toggle("active")
 
     if (!isNaN(keyPress)) {
       if (document.getElementById("terminal").innerHTML.indexOf("=") != -1) {
@@ -198,6 +208,14 @@
       decimal();
     }
   });
+
+  const buttons = document.getElementsByTagName("button")
+  Array.from(buttons).forEach(button =>{
+    button.addEventListener("transitionend", function(){
+      button.classList.remove("active");
+    })
+
+  })
 })();
 
 
