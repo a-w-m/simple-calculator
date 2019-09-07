@@ -157,7 +157,6 @@
     const keyPress = event.key;
     const operators = ["/", "*", "+", "-"];
     const button = document.querySelectorAll("[data-key=" +"\'" + event.key + "\'" +"]")
-    console.log(button[0].classList)
     button[0].classList.toggle("active")
 
     if (!isNaN(keyPress)) {

@@ -20,19 +20,27 @@ main {
   display: grid;
   grid-template-rows: repeat(6, 1fr);
   grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "terminal terminal terminal terminal" "allClear allClear delete divide" "seven eight nine multiply" "four five six substract" "one two three add" "decimal zero equals equals";
+  grid-template-areas: "terminal terminal terminal terminal" "allClear allClear delete divide" "seven eight nine multiply" "four five six subtract" "one two three add" "decimal zero equals equals";
   width: 90vw;
-  height: 100%;
+  height: 90%;
   margin: 0 auto;
   grid-column-gap: 0.5rem;
   grid-row-gap: 0.5rem;
   background: #6e8efb;
   font-family: "Roboto Condensed", sans-serif;
+  border: 0.25rem solid #1A213B;
   border-radius: 0.5rem;
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  .calculator {
+    height: 75vh;
+    grid-template-rows: 3fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, auto);
+    grid-template-areas: "terminal terminal terminal terminal" "allClear delete divide multiply" "seven eight nine subtract" "four five six add" "one two three decimal" "zero empty equals equals";
+  }
 }
 @media (min-width: 1200px) {
   .calculator {
-    border: 0.25rem solid black;
     width: 20rem;
     height: 30rem;
     margin: 0 auto;
@@ -72,6 +80,11 @@ button {
   transition: 0.2s;
   outline: none;
 }
+@media (max-width: 900px) and (orientation: landscape) {
+  button {
+    font-size: 1.5rem;
+  }
+}
 
 .calculator > button:active {
   border: 0.05rem solid black;
@@ -86,6 +99,11 @@ button {
   text-align: right;
   margin-bottom: -0.5rem;
   font-family: "Roboto Condensed", sans-serif;
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  #terminal {
+    font-size: 2rem;
+  }
 }
 
 .allClear {
@@ -136,6 +154,10 @@ button {
   grid-area: add;
 }
 
+#subtract {
+  grid-area: subtract;
+}
+
 .decimal {
   grid-area: decimal;
 }
@@ -149,10 +171,15 @@ button {
   background: #FFA28A;
   font-size: 5rem;
 }
+@media (max-width: 900px) and (orientation: landscape) {
+  #equals {
+    font-size: 2rem;
+  }
+}
 
 #equals:active {
-  transform: translateY(0.05rem);
-  transform: scaleY(1.1);
+  transform: translateY(0.01rem);
+  transform: scaleY(1.01);
   border: 0.25rem solid beige;
   outline: none;
 }
@@ -163,9 +190,6 @@ button {
   border: 0.25rem solid beige;
 }
 
-#footer {
-  display: none;
-}
 @media (min-width: 1200px) {
   #footer {
     flex: 0 1 100%;

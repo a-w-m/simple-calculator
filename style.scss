@@ -1,6 +1,10 @@
 @mixin for-phone-only {
     @media (max-width: 599px) { @content; }
   }
+ 
+  @mixin for-phone-landscape-up {
+    @media (max-width: 900px) and (orientation: landscape) { @content; }
+  }
   @mixin for-tablet-portrait-up {
     @media (min-width: 600px) { @content; }
   }
@@ -24,18 +28,7 @@
     and (-webkit-min-device-pixel-ratio: 2)  
     and (orientation: landscape)  {@content;}
   }
-@mixin button{
-    padding: 0rem .5rem;
-    width: 2rem;
-    height: 2rem;
-    line-height: 1;
-    border: solid .1rem transparent;
-    border-radius: .25rem;
-    background: #6e8efb;
-    cursor: pointer;
-    outline: none;
-    
-}
+
 
 @mixin active{
     transform: translateY(.05rem);
@@ -76,24 +69,38 @@ main{
                         "terminal terminal terminal terminal"
                          "allClear allClear delete divide"
                          "seven eight nine multiply"
-                         "four five six substract"
+                         "four five six subtract"
                          "one two three add"
                          "decimal zero equals equals";
     width: 90vw;
-    height: 100%;
+    height: 90%;
     margin: 0 auto;
     grid-column-gap: .5rem;
     grid-row-gap: .5rem;
     background: #6e8efb;
     font-family: 'Roboto Condensed', sans-serif;
-
-
-    
+    border: .25rem solid #1A213B;
     border-radius: .5rem;
+
+  
+
+    @include for-phone-landscape-up{
+        height: 75vh;
+        grid-template-rows:  3fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns:  repeat(4, auto);
+
+        grid-template-areas: 
+        "terminal terminal terminal terminal"
+         "allClear delete divide multiply"
+         "seven eight nine subtract"
+         "four five six add"
+         "one two three decimal"
+         "zero empty equals equals";
+
+    }
 
 
      @include for-desktop-up {
-        border: .25rem solid black;
         width: 20rem;
         height: 30rem;
         margin: 0 auto;
@@ -135,6 +142,10 @@ main{
     transition: .2s;
     outline: none;
 
+    @include for-phone-landscape-up{
+        font-size: 1.5rem;
+    }
+
 
 }
 
@@ -152,6 +163,10 @@ main{
     text-align: right;   
     margin-bottom: -.5rem;
     font-family: 'Roboto Condensed', sans-serif;
+
+    @include for-phone-landscape-up{
+        font-size: 2rem;
+    }
 
 }
 .allClear{
@@ -190,6 +205,9 @@ main{
 #add{
     grid-area: add;
 }
+#subtract{
+    grid-area: subtract;
+}
 .decimal{
     grid-area: decimal;
 }
@@ -200,22 +218,20 @@ main{
     grid-area: equals;
     background: #FFA28A;
     font-size: 5rem;
+
+    
+    @include for-phone-landscape-up{
+        font-size: 2rem;
+    }
 }
 
 #equals:active{
-    @include active;
+    transform: translateY(.01rem);
+    transform: scaleY(1.01);
+    border: .25rem solid beige;
     outline :none;
 }
 
-//  button:hover{
-//     border: .025rem solid black;
-//     background-color: beige;
-//  }
-
-
-//  button:active{
-//     @include active;
-//  }
 
  .active{
      @include active;
@@ -223,7 +239,7 @@ main{
  }
 
 #footer{
-    display: none;
+    
     @include for-desktop-up {
     flex: 0 1 100%;
     display: block;
